@@ -1,0 +1,35 @@
+<div class="container">
+    <select (change)="selectChangeHandler($event)">
+        <option>Select the city</option>
+        <option value="BANGALORE">Bangalore</option>
+        <option value="MUMBAI">Mumbai</option>
+        <option value="DELHI">Delhi</option>
+        <option value="CHENNAI">Chennai</option>
+        <option value="KOLKATA">Kolkata</option>
+      </select>
+    <span class="glyphicon glyphicon-search"></span>
+    <input type="text" [(ngModel)]="search" placeholder="Enter some text to search" />
+
+    <table class="table table-striped">
+        <tr>
+            <th>IFSC</th>
+            <th>Bank Id</th>
+            <th>Bank Name</th>
+            <th>Branch</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>District</th>
+            <th>State</th>
+        </tr>
+        <tr *ngFor="let bank of data | filter:search">
+            <td>{{bank.ifsc}}</td>
+            <td>{{bank.bank_id}}</td>
+            <td>{{bank.bank_name}}</td>
+            <td>{{bank.branch}}</td>
+            <td>{{bank.address}}</td>
+            <td>{{bank.city}}</td>
+            <td>{{bank.district}}</td>
+            <td>{{bank.state}}</td>
+        </tr>
+    </table>
+</div>
